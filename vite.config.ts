@@ -4,5 +4,6 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/My_Personal_Portfolio/',  // 👈 must match repo name exactly (case-sensitive)
+  // Use root base for Netlify/Vercel deployments
+  base: '/',
 })
