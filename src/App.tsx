@@ -378,7 +378,8 @@ function EducationCertifications() {
       title: "Bachelor of Science in Computer Science",
       school: "University of Engineering and Technology (UET) Taxila",
       duration: "2019 – 2023",
-      details: "Graduated with CGPA 3.40. Final Year Project: Genify – a gender-based marketing web app using CNN + collaborative filtering.",
+      details:
+        "Graduated with CGPA 3.40. Final Year Project: Genify – a gender-based marketing web app using CNN + collaborative filtering.",
     },
   ];
   const certifications = [
@@ -386,6 +387,7 @@ function EducationCertifications() {
     { title: "Foundations of Web Development & Cybersecurity", issuer: "Google / Coursera", year: "2024", icon: BookOpen },
     { title: "Full-Stack Web Development Bootcamp", issuer: "Udemy", year: "2024", icon: GraduationCap },
   ];
+
   return (
     <Section id="education" title="Education & Certifications">
       <div className="mb-10 grid gap-8 md:grid-cols-1">
@@ -396,30 +398,41 @@ function EducationCertifications() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ delay: i * 0.1 }}
-            className="rounded-2xl border border-neutral-800/80 bg-neutral-950 p-8 ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30"
+            className="rounded-2xl border border-neutral-200 bg-white p-8 ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30 dark:border-neutral-800/80 dark:bg-neutral-950"
           >
-            <h3 className="mb-1 text-xl font-semibold">{edu.title}</h3>
-            <p className="text-sm text-neutral-400">{edu.school} · {edu.duration}</p>
-            <p className="mt-2 text-neutral-300">{edu.details}</p>
+            <h3 className="mb-1 text-xl font-semibold text-neutral-900 dark:text-white">
+              {edu.title}
+            </h3>
+            <p className="text-sm text-neutral-600 dark:text-neutral-400">
+              {edu.school} · {edu.duration}
+            </p>
+            <p className="mt-2 text-neutral-700 dark:text-neutral-300">{edu.details}</p>
           </motion.div>
         ))}
       </div>
+
       <motion.div
         className="grid gap-8 md:grid-cols-3"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
-        variants={{ hidden: { opacity: 1 }, show: { opacity: 1, transition: { staggerChildren: 0.05, delayChildren: 0.05 } } }}
+        variants={{
+          hidden: { opacity: 1 },
+          show: { opacity: 1, transition: { staggerChildren: 0.05, delayChildren: 0.05 } },
+        }}
       >
         {certifications.map((cert, i) => (
           <motion.div
             key={cert.title}
-            variants={{ hidden: { opacity: 0, scale: 0.96 }, show: { opacity: 1, scale: 1, transition: { duration: 0.4 } } }}
-            className="flex flex-col items-center rounded-2xl border border-neutral-800/80 bg-neutral-950 p-8 text-center ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30"
+            variants={{
+              hidden: { opacity: 0, scale: 0.96 },
+              show: { opacity: 1, scale: 1, transition: { duration: 0.4 } },
+            }}
+            className="flex flex-col items-center rounded-2xl border border-neutral-200 bg-white p-8 text-center ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30 dark:border-neutral-800/80 dark:bg-neutral-950"
           >
-            <cert.icon className="mb-3 h-8 w-8 text-indigo-400" />
-            <h4 className="font-semibold">{cert.title}</h4>
-            <p className="text-sm text-neutral-400">{cert.issuer}</p>
+            <cert.icon className="mb-3 h-8 w-8 text-indigo-600 dark:text-indigo-400" />
+            <h4 className="font-semibold text-neutral-900 dark:text-white">{cert.title}</h4>
+            <p className="text-sm text-neutral-600 dark:text-neutral-400">{cert.issuer}</p>
             <span className="mt-1 text-xs text-neutral-500">{cert.year}</span>
           </motion.div>
         ))}
@@ -427,6 +440,7 @@ function EducationCertifications() {
     </Section>
   );
 }
+
 
 /* ---------- Showcase with Screenshots (NEW) ---------- */
 function Showcase() {
