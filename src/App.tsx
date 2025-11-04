@@ -310,7 +310,7 @@ function About() {
           <motion.div
             key={it.title}
             variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } } }}
-            className="group relative overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-950 p-8 shadow-sm ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30"
+            className="group relative overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-950 p-8 text-neutral-100 shadow-sm ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30"
           >
             <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gradient-to-br from-indigo-600/10 to-fuchsia-600/10 blur-2xl" />
             <div className="mb-3 flex items-center gap-2">
@@ -350,7 +350,7 @@ function Skills() {
           <motion.div
             key={s.name}
             variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } } }}
-            className="rounded-2xl border border-neutral-800/80 bg-neutral-950 p-6 ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30"
+            className="rounded-2xl border border-neutral-800/80 bg-neutral-950 p-6 text-neutral-100 ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30"
           >
             <div className="mb-2 flex items-center justify-between">
               <span className="font-medium">{s.name}</span>
@@ -378,8 +378,7 @@ function EducationCertifications() {
       title: "Bachelor of Science in Computer Science",
       school: "University of Engineering and Technology (UET) Taxila",
       duration: "2019 – 2023",
-      details:
-        "Graduated with CGPA 3.40. Final Year Project: Genify – a gender-based marketing web app using CNN + collaborative filtering.",
+      details: "Graduated with CGPA 3.40. Final Year Project: Genify – a gender-based marketing web app using CNN + collaborative filtering.",
     },
   ];
   const certifications = [
@@ -387,7 +386,6 @@ function EducationCertifications() {
     { title: "Foundations of Web Development & Cybersecurity", issuer: "Google / Coursera", year: "2024", icon: BookOpen },
     { title: "Full-Stack Web Development Bootcamp", issuer: "Udemy", year: "2024", icon: GraduationCap },
   ];
-
   return (
     <Section id="education" title="Education & Certifications">
       <div className="mb-10 grid gap-8 md:grid-cols-1">
@@ -398,41 +396,30 @@ function EducationCertifications() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ delay: i * 0.1 }}
-            className="rounded-2xl border border-neutral-200 bg-white p-8 ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30 dark:border-neutral-800/80 dark:bg-neutral-950"
+            className="rounded-2xl border border-neutral-800/80 bg-neutral-950 p-8 text-neutral-100 ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30"
           >
-            <h3 className="mb-1 text-xl font-semibold text-neutral-900 dark:text-white">
-              {edu.title}
-            </h3>
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              {edu.school} · {edu.duration}
-            </p>
-            <p className="mt-2 text-neutral-700 dark:text-neutral-300">{edu.details}</p>
+            <h3 className="mb-1 text-xl font-semibold">{edu.title}</h3>
+            <p className="text-sm text-neutral-400">{edu.school} · {edu.duration}</p>
+            <p className="mt-2 text-neutral-300">{edu.details}</p>
           </motion.div>
         ))}
       </div>
-
       <motion.div
         className="grid gap-8 md:grid-cols-3"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
-        variants={{
-          hidden: { opacity: 1 },
-          show: { opacity: 1, transition: { staggerChildren: 0.05, delayChildren: 0.05 } },
-        }}
+        variants={{ hidden: { opacity: 1 }, show: { opacity: 1, transition: { staggerChildren: 0.05, delayChildren: 0.05 } } }}
       >
         {certifications.map((cert, i) => (
           <motion.div
             key={cert.title}
-            variants={{
-              hidden: { opacity: 0, scale: 0.96 },
-              show: { opacity: 1, scale: 1, transition: { duration: 0.4 } },
-            }}
-            className="flex flex-col items-center rounded-2xl border border-neutral-200 bg-white p-8 text-center ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30 dark:border-neutral-800/80 dark:bg-neutral-950"
+            variants={{ hidden: { opacity: 0, scale: 0.96 }, show: { opacity: 1, scale: 1, transition: { duration: 0.4 } } }}
+            className="flex flex-col items-center rounded-2xl border border-neutral-800/80 bg-neutral-950 p-8 text-center text-neutral-100 ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30"
           >
-            <cert.icon className="mb-3 h-8 w-8 text-indigo-600 dark:text-indigo-400" />
-            <h4 className="font-semibold text-neutral-900 dark:text-white">{cert.title}</h4>
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">{cert.issuer}</p>
+            <cert.icon className="mb-3 h-8 w-8 text-indigo-400" />
+            <h4 className="font-semibold">{cert.title}</h4>
+            <p className="text-sm text-neutral-400">{cert.issuer}</p>
             <span className="mt-1 text-xs text-neutral-500">{cert.year}</span>
           </motion.div>
         ))}
@@ -477,7 +464,7 @@ function Showcase() {
             target="_blank"
             rel="noreferrer"
             variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } } }}
-            className="group block overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-950 shadow-sm ring-1 ring-indigo-500/0 transition hover:-translate-y-1 hover:shadow-xl hover:ring-indigo-500/30"
+            className="group block overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-950 text-neutral-100 shadow-sm ring-1 ring-indigo-500/0 transition hover:-translate-y-1 hover:shadow-xl hover:ring-indigo-500/30"
           >
             <div className="relative h-64 w-full overflow-hidden">
               <img src={p.img} alt={p.alt} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy" />
@@ -517,7 +504,7 @@ function Projects() {
             key={p.title}
             href={p.link}
             whileHover={{ y: -6 }}
-            className="group relative block overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-950 p-8 shadow-sm transition-transform duration-300 hover:shadow-xl"
+            className="group relative block overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-950 p-8 text-neutral-100 shadow-sm transition-transform duration-300 hover:shadow-xl"
             variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } } }}
           >
             <div className="pointer-events-none absolute inset-x-0 -top-0 h-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-70" />
@@ -559,7 +546,7 @@ function Experience() {
           <motion.div
             key={e.role}
             variants={{ hidden: { opacity: 0, x: -14 }, show: { opacity: 1, x: 0, transition: { duration: 0.45, ease: "easeOut" } } }}
-            className="rounded-2xl border border-neutral-800/80 bg-neutral-950 p-6 ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30"
+            className="rounded-2xl border border-neutral-800/80 bg-neutral-950 p-6 text-neutral-100 ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30"
           >
             <div className="flex items-center justify-between">
               <h3 className="text-lg font-semibold">{e.role}</h3>
@@ -596,7 +583,7 @@ function Testimonials() {
           <motion.blockquote
             key={i}
             variants={{ hidden: { opacity: 0, scale: 0.98 }, show: { opacity: 1, scale: 1, transition: { duration: 0.45 } } }}
-            className="relative overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-950 p-8 italic ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30"
+            className="relative overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-950 p-8 text-neutral-100 italic ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30"
           >
             <div className="pointer-events-none absolute -left-8 -top-8 h-24 w-24 rounded-full bg-gradient-to-br from-indigo-600/10 to-fuchsia-600/10 blur-2xl" />
             “{t.q}”
@@ -608,6 +595,7 @@ function Testimonials() {
   );
 }
 
+
 function Contact() {
   return (
     <Section id="contact" title="Contact">
@@ -616,7 +604,7 @@ function Contact() {
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="rounded-2xl border border-neutral-800/80 bg-neutral-950 p-8 ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30"
+          className="rounded-2xl border border-neutral-800/80 bg-neutral-950 p-8 text-neutral-100 ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30"
           onSubmit={(e) => {
             e.preventDefault();
             const data = new FormData(e.currentTarget as HTMLFormElement);
@@ -628,15 +616,15 @@ function Contact() {
         >
           <div className="mb-4">
             <label className="mb-1 block text-sm font-medium">Name</label>
-            <input name="name" required className="w-full rounded-xl border border-neutral-700 bg-neutral-900 px-3 py-2 outline-none transition focus:ring-2 focus:ring-indigo-500" />
+            <input name="name" required className="w-full rounded-xl border border-neutral-700 bg-neutral-900 px-3 py-2 text-white outline-none transition focus:ring-2 focus:ring-indigo-500" />
           </div>
           <div className="mb-4">
             <label className="mb-1 block text-sm font-medium">Email</label>
-            <input type="email" name="email" required className="w-full rounded-xl border border-neutral-700 bg-neutral-900 px-3 py-2 outline-none transition focus:ring-2 focus:ring-indigo-500" />
+            <input type="email" name="email" required className="w-full rounded-xl border border-neutral-700 bg-neutral-900 px-3 py-2 text-white outline-none transition focus:ring-2 focus:ring-indigo-500" />
           </div>
           <div className="mb-4">
             <label className="mb-1 block text-sm font-medium">Message</label>
-            <textarea name="message" rows={5} required className="w-full resize-none rounded-xl border border-neutral-700 bg-neutral-900 px-3 py-2 outline-none transition focus:ring-2 focus:ring-indigo-500" />
+            <textarea name="message" rows={5} required className="w-full resize-none rounded-xl border border-neutral-700 bg-neutral-900 px-3 py-2 text-white outline-none transition focus:ring-2 focus:ring-indigo-500" />
           </div>
           <button type="submit" className="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-5 py-2 text-white shadow-sm shadow-indigo-500/10 transition hover:opacity-90 dark:bg-white dark:text-neutral-900">
             Send <Mail className="h-4 w-4" />
@@ -647,7 +635,7 @@ function Contact() {
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="rounded-2xl border border-neutral-800/80 bg-neutral-950 p-8 ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30"
+          className="rounded-2xl border border-neutral-800/80 bg-neutral-950 p-8 text-neutral-100 ring-1 ring-indigo-500/0 transition-colors hover:ring-indigo-500/30"
         >
           <h3 className="mb-2 text-lg font-semibold">Let’s build something</h3>
           <p className="mb-4 text-neutral-300">Open for freelance projects, roles, and collaborations in web dev and practical AI.</p>
